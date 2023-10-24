@@ -18,7 +18,6 @@ public class HangmanServer3 {
             //create server socker, pass in port number
             int port =Integer.parseInt(args[0]);
             ServerSocket serverSocket = new ServerSocket(port);
-            System.out.println("Server listening on port 8877...");
 
             while (true) {
                 //create socket from serverSocker.accept
