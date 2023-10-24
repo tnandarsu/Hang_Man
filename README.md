@@ -8,16 +8,18 @@ The Java version of the Hangman game is a console-based program that allows a us
 
 ### Running the Java Version
 
-To run the Java version of Hangman, navigate to the `hangman-java` directory and compile the program using:
+To run the Java version of Hangman, compile the program using:
 
 ```bash
-javac Hangman.java
+javac HangmanServer3.java
+javac HangmanClient3.java
 ```
 
-Then, run the game with:
+Then, run the server program with:
 
 ```bash
-java Hangman
+java HangmanServer3 {specify port used}
+java HangmanClient3 {specify port used}
 ```
 
 ## Hangman - Python Version
