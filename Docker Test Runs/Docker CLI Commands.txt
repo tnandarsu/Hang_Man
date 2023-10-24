@@ -1,0 +1,17 @@
+docker images
+
+docker ps
+
+docker container ls --all
+
+docker run hang_man-server
+docker run -p 5000:5000 hang_man-server
+docker run <image name> run = create + start
+
+docker start compassionate_williamson -i
+docker start <container name> -i
+
+python hangman_client.py
+
+docker stop $(docker ps -q)
+docker stop $(docker ps -a -q)

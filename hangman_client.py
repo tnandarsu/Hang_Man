@@ -11,7 +11,7 @@ def client_program():
         response = client_socket.recv(1024).decode()
         print(response)
 
-        if "Bye" in response:
+        if "BYE" in response:
             client_socket.close()
             break
         else:

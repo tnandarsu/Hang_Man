@@ -1,0 +1,21 @@
+Windows PowerShell
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+Install the latest PowerShell for new features and improvements! https://aka.ms/PSWindows
+
+PS C:\Users\HP> cd C:\Users\HP\OneDrive\Documents\GitHub\Hang_Man
+PS C:\Users\HP\OneDrive\Documents\GitHub\Hang_Man> docker run hang_man-server
+PS C:\Users\HP\OneDrive\Documents\GitHub\Hang_Man> docker run hang_man-server
+Wating for the client connection
+PS C:\Users\HP\OneDrive\Documents\GitHub\Hang_Man> docker run --network host hang_man-server
+Wating for the client connection
+PS C:\Users\HP\OneDrive\Documents\GitHub\Hang_Man> docker run --network host hang_man-server:1.0
+Unable to find image 'hang_man-server:1.0' locally
+docker: Error response from daemon: pull access denied for hang_man-server, repository does not exist or may require 'docker login': denied: requested access to the resource is denied.
+See 'docker run --help'.
+PS C:\Users\HP\OneDrive\Documents\GitHub\Hang_Man> docker run -p 5000:5000 hang_man-server
+Wating for the client connection
+Connected with Hangman client
+Connection from: ('172.17.0.1', 39938)
+Connected with Hangman client
+Connection from: ('172.17.0.1', 34740)

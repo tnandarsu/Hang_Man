@@ -56,7 +56,7 @@ def server_program():
         server_socket.bind((host, port))
         server_socket.listen()
         
-        print("Wating for the client connection")
+        print("Waiting for the client connection")
 
         while True:
             #if there's connection

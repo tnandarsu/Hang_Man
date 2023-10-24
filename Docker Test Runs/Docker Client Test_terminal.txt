@@ -1,0 +1,59 @@
+Windows PowerShell
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+Install the latest PowerShell for new features and improvements! https://aka.ms/PSWindows
+
+PS C:\Users\HP> cd C:\Users\HP\OneDrive\Documents\GitHub\Hang_Man
+PS C:\Users\HP\OneDrive\Documents\GitHub\Hang_Man> .\hangman_client.py
+PS C:\Users\HP\OneDrive\Documents\GitHub\Hang_Man> .\hangman_client.py
+PS C:\Users\HP\OneDrive\Documents\GitHub\Hang_Man> python hangman_client.py
+Traceback (most recent call last):
+  File "C:\Users\HP\OneDrive\Documents\GitHub\Hang_Man\hangman_client.py", line 24, in <module>
+    client_program()
+  File "C:\Users\HP\OneDrive\Documents\GitHub\Hang_Man\hangman_client.py", line 8, in client_program
+    client_socket.connect((host,port))
+ConnectionRefusedError: [WinError 10061] No connection could be made because the target machine actively refused it
+PS C:\Users\HP\OneDrive\Documents\GitHub\Hang_Man> python hangman_client.py
+Traceback (most recent call last):
+  File "C:\Users\HP\OneDrive\Documents\GitHub\Hang_Man\hangman_client.py", line 24, in <module>
+    client_program()
+  File "C:\Users\HP\OneDrive\Documents\GitHub\Hang_Man\hangman_client.py", line 8, in client_program
+    client_socket.connect((host,port))
+ConnectionRefusedError: [WinError 10061] No connection could be made because the target machine actively refused it
+PS C:\Users\HP\OneDrive\Documents\GitHub\Hang_Man> .\hangman_client.py
+PS C:\Users\HP\OneDrive\Documents\GitHub\Hang_Man> python hangman_client.py
+Word: _ _ _ _ _
+You have 10 attempts left
+Your next Guess:
+e
+Word: _ _ _ _ e
+You have 10 attempts left
+Your next Guess:
+i
+Word: _ _ _ i e
+You have 10 attempts left
+Your next Guess:
+o
+Word: _ o _ i e
+You have 10 attempts left
+Your next Guess:
+v
+Word: _ o v i e
+You have 10 attempts left
+Your next Guess:
+m
+Congratulations! You won. Your answer is: movie
+The chosen word is movie. This is only one-time program. BYE!
+
+
+
+
+Traceback (most recent call last):
+  File "C:\Users\HP\OneDrive\Documents\GitHub\Hang_Man\hangman_client.py", line 24, in <module>
+    client_program()
+  File "C:\Users\HP\OneDrive\Documents\GitHub\Hang_Man\hangman_client.py", line 18, in client_program
+    guess = input()
+            ^^^^^^^
+KeyboardInterrupt
+PS C:\Users\HP\OneDrive\Documents\GitHub\Hang_Man> .\hangman_client.py
+PS C:\Users\HP\OneDrive\Documents\GitHub\Hang_Man>
