@@ -1,0 +1,218 @@
+Windows PowerShell
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+Install the latest PowerShell for new features and improvements! https://aka.ms/PSWindows
+
+PS C:\Users\HP\OneDrive\Documents\GitHub\Hang_Man> docker init
+
+Welcome to the Docker Init CLI!
+
+This utility will walk you through creating the following files with sensible defaults for your project:
+  - .dockerignore
+  - Dockerfile
+  - compose.yaml
+
+Let's get started!
+
+? What application platform does your project use? Python
+? What version of Python do you want to use? (3.9.6) 3.11.0
+
+? What version of Python do you want to use? 3.11.0
+? What port do you want your app to listen on? (8000) 5000
+
+? What port do you want your app to listen on? 5000
+? What is the command to run your app (e.g., gunicorn 'myapp.example:app' --bind=0.0.0.0:5000)? python hangman_server.p
+? What is the command to run your app (e.g., gunicorn 'myapp.example:app' --bind=0.0.0.0:5000)? python hangman_server.py
+
+CREATED: .dockerignore
+CREATED: Dockerfile
+CREATED: compose.yaml
+
+✔ Your Docker files are ready!
+
+Take a moment to review them and tailor them to your application.
+
+When you're ready, start your application by running: docker compose up --build
+
+Your application will be available at http://localhost:5000
+PS C:\Users\HP\OneDrive\Documents\GitHub\Hang_Man> docker build -t hangman_server:1.0 .
+[+] Building 12.5s (14/14) FINISHED                                                                      docker:default
+ => [internal] load build definition from Dockerfile                                                               0.5s
+ => => transferring dockerfile: 1.58kB                                                                             0.3s
+ => [internal] load .dockerignore                                                                                  0.5s
+ => => transferring context: 680B                                                                                  0.3s
+ => resolve image config for docker.io/docker/dockerfile:1                                                         6.5s
+ => [auth] docker/dockerfile:pull token for registry-1.docker.io                                                   0.0s
+ => CACHED docker-image://docker.io/docker/dockerfile:1@sha256:ac85f380a63b13dfcefa89046420e1781752bab202122f8f50  0.0s
+ => [internal] load metadata for docker.io/library/python:3.11.0-slim                                              2.9s
+ => [auth] library/python:pull token for registry-1.docker.io                                                      0.0s
+ => [internal] load build context                                                                                  0.0s
+ => => transferring context: 2.77kB                                                                                0.0s
+ => [base 1/5] FROM docker.io/library/python:3.11.0-slim@sha256:b5ee5360b357dcd0ab2e1cc5e22fa589b6734bbd55776df6b  0.0s
+ => CACHED [base 2/5] WORKDIR /app                                                                                 0.0s
+ => CACHED [base 3/5] RUN adduser     --disabled-password     --gecos ""     --home "/nonexistent"     --shell "/  0.0s
+ => CACHED [base 4/5] RUN --mount=type=cache,target=/root/.cache/pip     --mount=type=bind,source=requirements.tx  0.0s
+ => [base 5/5] COPY . .                                                                                            0.1s
+ => exporting to image                                                                                             0.2s
+ => => exporting layers                                                                                            0.1s
+ => => writing image sha256:725e7eae7ad9ba7930de30fe4c76894382d19352d8fc5a2fea814d7fb10c982f                       0.0s
+ => => naming to docker.io/library/hangman_server:1.0                                                              0.1s
+
+What's Next?
+  View a summary of image vulnerabilities and recommendations → docker scout quickview
+PS C:\Users\HP\OneDrive\Documents\GitHub\Hang_Man> docker images
+REPOSITORY       TAG       IMAGE ID       CREATED          SIZE
+hangman_server   1.0       725e7eae7ad9   26 seconds ago   132MB
+PS C:\Users\HP\OneDrive\Documents\GitHub\Hang_Man> docker ps
+CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
+PS C:\Users\HP\OneDrive\Documents\GitHub\Hang_Man> docker run hangman_server
+Unable to find image 'hangman_server:latest' locally
+docker: Error response from daemon: pull access denied for hangman_server, repository does not exist or may require 'docker login': denied: requested access to the resource is denied.
+See 'docker run --help'.
+PS C:\Users\HP\OneDrive\Documents\GitHub\Hang_Man> docker run hangman_server:1.0
+Wating for the client connection
+PS C:\Users\HP\OneDrive\Documents\GitHub\Hang_Man> docker run hangman_server:1.0
+Wating for the client connection
+PS C:\Users\HP\OneDrive\Documents\GitHub\Hang_Man> docker ps --all
+CONTAINER ID   IMAGE                COMMAND                  CREATED         STATUS                        PORTS     NAMES
+73cadc129654   hangman_server:1.0   "/bin/sh -c 'python …"   3 minutes ago   Exited (137) 40 seconds ago             tender_hodgkin
+49abeb77e773   hangman_server:1.0   "/bin/sh -c 'python …"   8 minutes ago   Exited (137) 3 minutes ago              elegant_germain
+PS C:\Users\HP\OneDrive\Documents\GitHub\Hang_Man> docker rm tender_hodgkin elegant_germain
+tender_hodgkin
+elegant_germain
+PS C:\Users\HP\OneDrive\Documents\GitHub\Hang_Man> docker ps --all
+CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
+PS C:\Users\HP\OneDrive\Documents\GitHub\Hang_Man> docker images
+REPOSITORY   TAG       IMAGE ID   CREATED   SIZE
+PS C:\Users\HP\OneDrive\Documents\GitHub\Hang_Man> docker compose up --build
+[+] Building 8.9s (14/14) FINISHED                                                                       docker:default
+ => [server internal] load .dockerignore                                                                           0.1s
+ => => transferring context: 680B                                                                                  0.1s
+ => [server internal] load build definition from Dockerfile                                                        0.1s
+ => => transferring dockerfile: 1.58kB                                                                             0.1s
+ => [server] resolve image config for docker.io/docker/dockerfile:1                                                4.6s
+ => [server auth] docker/dockerfile:pull token for registry-1.docker.io                                            0.0s
+ => CACHED [server] docker-image://docker.io/docker/dockerfile:1@sha256:ac85f380a63b13dfcefa89046420e1781752bab20  0.0s
+ => [server internal] load metadata for docker.io/library/python:3.11.0-slim                                       2.5s
+ => [server auth] library/python:pull token for registry-1.docker.io                                               0.0s
+ => [server internal] load build context                                                                           0.0s
+ => => transferring context: 341B                                                                                  0.0s
+ => [server base 1/5] FROM docker.io/library/python:3.11.0-slim@sha256:b5ee5360b357dcd0ab2e1cc5e22fa589b6734bbd55  0.0s
+ => CACHED [server base 2/5] WORKDIR /app                                                                          0.0s
+ => CACHED [server base 3/5] RUN adduser     --disabled-password     --gecos ""     --home "/nonexistent"     --s  0.0s
+ => CACHED [server base 4/5] RUN --mount=type=cache,target=/root/.cache/pip     --mount=type=bind,source=requirem  0.0s
+ => CACHED [server base 5/5] COPY . .                                                                              0.0s
+ => [server] exporting to image                                                                                    0.0s
+ => => exporting layers                                                                                            0.0s
+ => => writing image sha256:efca00ecb3d52bfaa586f36bdb6a4367286e01247b0cb63f2e8819e76b2d98c0                       0.0s
+ => => naming to docker.io/library/hang_man-server                                                                 0.0s
+[+] Running 2/2
+ ✔ Network hang_man_default     Created                                                                            0.3s
+ ✔ Container hang_man-server-1  Created                                                                            0.5s
+Attaching to hang_man-server-1
+hang_man-server-1  | Wating for the client connection
+hang_man-server-1  | Connected with Hangman client
+hang_man-server-1  | Connection from: ('172.18.0.1', 38364)
+hang_man-server-1  | Connected with Hangman client
+hang_man-server-1  | Connection from: ('172.18.0.1', 41706)
+hang_man-server-1  | Connected with Hangman client
+hang_man-server-1  | Connection from: ('172.18.0.1', 35778)
+hang_man-server-1  | Connected with Hangman client
+hang_man-server-1  | Connection from: ('172.18.0.1', 33458)
+hang_man-server-1  | Connected with Hangman client
+hang_man-server-1  | Connection from: ('172.18.0.1', 42740)
+hang_man-server-1  | Exception in thread Thread-5 (multi_client):
+hang_man-server-1  | Traceback (most recent call last):
+hang_man-server-1  |   File "/usr/local/lib/python3.11/threading.py", line 1038, in _bootstrap_inner
+hang_man-server-1  |     self.run()
+hang_man-server-1  |   File "/usr/local/lib/python3.11/threading.py", line 975, in run
+hang_man-server-1  |     self._target(*self._args, **self._kwargs)
+hang_man-server-1  |   File "/app/hangman_server.py", line 38, in multi_client
+hang_man-server-1  |     client_socket.send("Invalid input. Please try again with a single letter.".encode())
+hang_man-server-1  | BrokenPipeError: [Errno 32] Broken pipe
+hang_man-server-1 exited with code 0
+PS C:\Users\HP\OneDrive\Documents\GitHub\Hang_Man> docker images
+REPOSITORY        TAG       IMAGE ID       CREATED          SIZE
+hang_man-server   latest    efca00ecb3d5   38 minutes ago   132MB
+PS C:\Users\HP\OneDrive\Documents\GitHub\Hang_Man> docker run hang_man-server
+Wating for the client connection
+PS C:\Users\HP\OneDrive\Documents\GitHub\Hang_Man> docker compose up --build
+[+] Building 14.4s (14/14) FINISHED                                                                      docker:default
+ => [server internal] load .dockerignore                                                                           0.2s
+ => => transferring context: 680B                                                                                  0.0s
+ => [server internal] load build definition from Dockerfile                                                        0.2s
+ => => transferring dockerfile: 1.58kB                                                                             0.0s
+ => [server] resolve image config for docker.io/docker/dockerfile:1                                                4.5s
+ => [server auth] docker/dockerfile:pull token for registry-1.docker.io                                            0.0s
+ => CACHED [server] docker-image://docker.io/docker/dockerfile:1@sha256:ac85f380a63b13dfcefa89046420e1781752bab20  0.0s
+ => [server internal] load metadata for docker.io/library/python:3.11.0-slim                                       3.6s
+ => [server auth] library/python:pull token for registry-1.docker.io                                               0.0s
+ => [server base 1/5] FROM docker.io/library/python:3.11.0-slim@sha256:b5ee5360b357dcd0ab2e1cc5e22fa589b6734bbd55  0.0s
+ => [server internal] load build context                                                                           0.1s
+ => => transferring context: 341B                                                                                  0.0s
+ => CACHED [server base 2/5] WORKDIR /app                                                                          0.0s
+ => CACHED [server base 3/5] RUN adduser     --disabled-password     --gecos ""     --home "/nonexistent"     --s  0.0s
+ => CACHED [server base 4/5] RUN --mount=type=cache,target=/root/.cache/pip     --mount=type=bind,source=requirem  0.0s
+ => CACHED [server base 5/5] COPY . .                                                                              0.0s
+ => [server] exporting to image                                                                                    0.1s
+ => => exporting layers                                                                                            0.0s
+ => => writing image sha256:efca00ecb3d52bfaa586f36bdb6a4367286e01247b0cb63f2e8819e76b2d98c0                       0.1s
+ => => naming to docker.io/library/hang_man-server                                                                 0.1s
+[+] Running 1/0
+ ✔ Container hang_man-server-1  Created                                                                            0.0s
+Attaching to hang_man-server-1
+hang_man-server-1  | Wating for the client connection
+hang_man-server-1  | Connected with Hangman client
+hang_man-server-1  | Connection from: ('172.18.0.1', 52910)
+hang_man-server-1  | Connected with Hangman client
+hang_man-server-1  | Connection from: ('172.18.0.1', 42670)
+hang_man-server-1  | Connected with Hangman client
+hang_man-server-1  | Connection from: ('172.18.0.1', 42680)
+hang_man-server-1  | Exception in thread Thread-1 (multi_client):
+hang_man-server-1  | Traceback (most recent call last):
+hang_man-server-1  |   File "/usr/local/lib/python3.11/threading.py", line 1038, in _bootstrap_inner
+hang_man-server-1  |     self.run()
+hang_man-server-1  |   File "/usr/local/lib/python3.11/threading.py", line 975, in run
+hang_man-server-1  |     self._target(*self._args, **self._kwargs)
+hang_man-server-1  |   File "/app/hangman_server.py", line 38, in multi_client
+hang_man-server-1  |     client_socket.send("Invalid input. Please try again with a single letter.".encode())
+hang_man-server-1  | BrokenPipeError: [Errno 32] Broken pipe
+hang_man-server-1  | Exception in thread Thread-2 (multi_client):
+hang_man-server-1  | Traceback (most recent call last):
+hang_man-server-1  |   File "/usr/local/lib/python3.11/threading.py", line 1038, in _bootstrap_inner
+hang_man-server-1  |     self.run()
+hang_man-server-1  |   File "/usr/local/lib/python3.11/threading.py", line 975, in run
+hang_man-server-1  |     self._target(*self._args, **self._kwargs)
+hang_man-server-1  |   File "/app/hangman_server.py", line 38, in multi_client
+hang_man-server-1  |     client_socket.send("Invalid input. Please try again with a single letter.".encode())
+hang_man-server-1  | BrokenPipeError: [Errno 32] Broken pipe
+hang_man-server-1  | Exception in thread Thread-3 (multi_client):
+hang_man-server-1  | Traceback (most recent call last):
+hang_man-server-1  |   File "/usr/local/lib/python3.11/threading.py", line 1038, in _bootstrap_inner
+hang_man-server-1  |     self.run()
+hang_man-server-1  |   File "/usr/local/lib/python3.11/threading.py", line 975, in run
+hang_man-server-1  |     self._target(*self._args, **self._kwargs)
+hang_man-server-1  |   File "/app/hangman_server.py", line 34, in multi_client
+hang_man-server-1  |     client_socket.send(f"Word: {' '.join(missing_word)}\nYou have {trials} attempts left\nYour next Guess: ".encode())
+hang_man-server-1  | BrokenPipeError: [Errno 32] Broken pipe
+hang_man-server-1  | Connected with Hangman client
+hang_man-server-1  | Connection from: ('172.18.0.1', 57250)
+hang_man-server-1  | Connected with Hangman client
+hang_man-server-1  | Connection from: ('172.18.0.1', 42966)
+hang_man-server-1  | Connected with Hangman client
+hang_man-server-1  | Connection from: ('172.18.0.1', 48254)
+hang_man-server-1  | Exception in thread Thread-5 (multi_client):
+hang_man-server-1  | Traceback (most recent call last):
+hang_man-server-1  |   File "/usr/local/lib/python3.11/threading.py", line 1038, in _bootstrap_inner
+hang_man-server-1  |     self.run()
+hang_man-server-1  |   File "/usr/local/lib/python3.11/threading.py", line 975, in run
+hang_man-server-1  |     self._target(*self._args, **self._kwargs)
+hang_man-server-1  |   File "/app/hangman_server.py", line 38, in multi_client
+hang_man-server-1  |     client_socket.send("Invalid input. Please try again with a single letter.".encode())
+hang_man-server-1  | BrokenPipeError: [Errno 32] Broken pipe
+Gracefully stopping... (press Ctrl+C again to force)
+Aborting on container exit...
+[+] Stopping 1/1
+ ✔ Container hang_man-server-1  Stopped                                                                           11.0s
+canceled
+PS C:\Users\HP\OneDrive\Documents\GitHub\Hang_Man>

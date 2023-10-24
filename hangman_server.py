@@ -2,7 +2,9 @@ import socket
 import threading
 import random
 
-words = ["beach", "movie", "mountain", "food", "holiday", "concert", "christmas", "home", "book", "music", "internship", "trip"]
+words = ["beach", "movie", "mountain", "food", "holiday", 
+         "concert", "christmas", "home", "book", "music", 
+         "internship", "trip"]
 
 def choose_random_word():
     return random.choice(words)
@@ -26,7 +28,7 @@ def multi_client(client_socket):
 
     while trials > 0:
         if all(letter != '_' for letter in missing_word):
-            client_socket.send(f"Congratulations! You won. Your anwer is: {chosen_word}\n".encode())
+            client_socket.send(f"Congratulations! You won. Your answer is: {chosen_word}\n".encode())
             break
 
         client_socket.send(f"Word: {' '.join(missing_word)}\nYou have {trials} attempts left\nYour next Guess: ".encode())
@@ -54,7 +56,7 @@ def server_program():
         server_socket.bind((host, port))
         server_socket.listen()
         
-        print("Wating for the client connection")
+        print("Waiting for the client connection")
 
         while True:
             #if there's connection
