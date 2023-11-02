@@ -31,7 +31,7 @@ The Python version of Hangman is similar to the Java version but implemented in 
 To run the Python version of Hangman, navigate to the `hangman-python` directory and execute the following command:
 
 ```bash
-python hangman.py
+python3 hangman.py
 ```
 
 ## Hangman - Python Version Containerized in Docker
